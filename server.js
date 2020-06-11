@@ -3,6 +3,10 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const dataService = require("./modules/data-service.js");
 
+require('dotenv').config({
+    path: "./config/keys.env"
+});
+
 const myData = dataService(process.env.MDB_CONN_STR);
 
 const app = express();
