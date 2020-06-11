@@ -3,7 +3,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const dataService = require("./modules/data-service.js");
 
-const myData = dataService("mongodb+srv://thzgreywolf:yoitskiru@cluster0-emqvm.mongodb.net/sample_supplies?retryWrites=true&w=majority");
+const myData = dataService(process.env.MDB_CONN_STR);
 
 const app = express();
 
