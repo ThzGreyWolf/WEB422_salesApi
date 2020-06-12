@@ -22,7 +22,7 @@ const HTTP_PORT = process.env.PORT || 8080;
 // POST /api/sales (NOTE: This route must read the contents of the request body)
 app.post("/api/sales", (req, res) => {
     myData.addNewSale(req.body).then((msg) => {
-        req.json({message: msg});
+        res.json({message: msg});
     }).catch((err) => {
         res.json({message: `Error: ${err}`});
     });
@@ -31,7 +31,7 @@ app.post("/api/sales", (req, res) => {
 // GET /api/sales (NOTE: This route must accept the numeric query parameters "page" and "perPage", ie: /api/sales?page=1&perPage=5 )
 app.get("/api/sales/:page&:perPage", (req, res) => {
     myData.getAllSales(req.params.page, req.params.perPage).then((msg) => {
-        req.json({message: msg});
+        res.json({message: msg});
     }).catch((err) => {
         res.json({message: `Error: ${err}`});
     });
@@ -40,7 +40,7 @@ app.get("/api/sales/:page&:perPage", (req, res) => {
 // GET /api/sales (NOTE: This route must accept a numeric route parameter, ie: /api/sales/5bd761dcae323e45a93ccfe8)
 app.get("/api/sales/:id", (req, res) => {
     myData.getSaleById(req.params.id).then((msg) => {
-        req.json({message: msg});
+        res.json({message: msg});
     }).catch((err) => {
         res.json({message: `Error: ${err}`});
     });
